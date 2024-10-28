@@ -1,7 +1,7 @@
 # PufETH Conversion Rate Tracker
 
 ![site](site.png)
-![demo](https://youtu.be/UWrf2U2yJho)
+[demo](https://youtu.be/UWrf2U2yJho)
 
 # Tech Stack
 
