@@ -2,7 +2,14 @@ module github.com/gobbry/puffering
 
 go 1.23.1
 
-require github.com/ethereum/go-ethereum v1.14.11
+require (
+	github.com/ethereum/go-ethereum v1.14.11
+	github.com/go-chi/chi/v5 v5.1.0
+	github.com/go-chi/cors v1.2.1
+	github.com/joho/godotenv v1.5.1
+	github.com/lib/pq v1.10.9
+	github.com/redis/go-redis/v9 v9.7.0
+)
 
 require (
 	github.com/Microsoft/go-winio v0.6.2 // indirect
@@ -20,16 +27,11 @@ require (
 	github.com/ethereum/c-kzg-4844/bindings/go v0.0.0-20230126171313-363c7d7593b4 // indirect
 	github.com/ethereum/go-verkle v0.1.1-0.20240829091221-dffa7562dbe9 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
-	github.com/go-chi/chi/v5 v5.1.0 // indirect
-	github.com/go-chi/cors v1.2.1 // indirect
 	github.com/go-ole/go-ole v1.3.0 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/gorilla/websocket v1.4.2 // indirect
 	github.com/holiman/uint256 v1.3.1 // indirect
-	github.com/joho/godotenv v1.5.1 // indirect
-	github.com/lib/pq v1.10.9 // indirect
 	github.com/mmcloughlin/addchain v0.4.0 // indirect
-	github.com/redis/go-redis/v9 v9.7.0 // indirect
 	github.com/shirou/gopsutil v3.21.4-0.20210419000835-c7a38de76ee5+incompatible // indirect
 	github.com/supranational/blst v0.3.13 // indirect
 	github.com/tklauser/go-sysconf v0.3.12 // indirect

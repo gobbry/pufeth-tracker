@@ -14,7 +14,6 @@ import (
 const (
 	MAINNET_RPC = "https://eth-pokt.nodies.app"
 	MAINNET_WS  = "wss://ethereum-rpc.publicnode.com"
-	DB_URL      = "postgres://postgres:password@localhost:5432/postgres?sslmode=disable"
 	REDIS_URL   = "localhost:6379"
 )
 

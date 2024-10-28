@@ -23,6 +23,62 @@ services:
     networks:
       - puffer_network
 
+  # rtmd:
+  #   container_name: rtmd
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #     args:
+  #       APP_NAME: rtmd
+  #   env_file:
+  #     - .env.deploy
+  #   restart: always
+  #   networks:
+  #     - puffer_network
+  #   depends_on:
+  #     timescaledb:
+  #       condition: service_started
+  #     redis:
+  #       condition: service_started
+
+  # backfiller:
+  #   container_name: backfiller
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #     args:
+  #       APP_NAME: backfiller
+  #   env_file:
+  #     - .env.deploy
+  #   restart: always
+  #   networks:
+  #     - puffer_network
+  #   depends_on:
+  #     timescaledb:
+  #       condition: service_started
+  #     redis:
+  #       condition: service_started
+
+  # front:
+  #   container_name: front
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #     args:
+  #       APP_NAME: front
+  #   ports:
+  #     - "3001:3001"
+  #   env_file:
+  #     - .env.deploy
+  #   restart: always
+  #   networks:
+  #     - puffer_network
+  #   depends_on:
+  #     timescaledb:
+  #       condition: service_started
+  #     redis:
+  #       condition: service_started
+
 networks:
   puffer_network:
     external: true
