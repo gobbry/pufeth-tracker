@@ -7,13 +7,14 @@ import (
 	"log/slog"
 	"os"
 
+	"github.com/gobbry/puffering/libraries/comms"
 	_ "github.com/lib/pq"
 )
 
 const schemaPath = "./libraries/database/schema.sql"
 
 func setupDatabase(ctx context.Context) (*sql.DB, error) {
-	db, err := sql.Open("postgres", "postgres://postgres:password@localhost:5432/postgres?sslmode=disable")
+	db, err := comms.NewTimescaleDB()
 	if err != nil {
 		return nil, fmt.Errorf("error opening database: %w", err)
 	}
