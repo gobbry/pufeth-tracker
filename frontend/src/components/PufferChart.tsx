@@ -7,12 +7,9 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
-  Brush,
-  AreaChart,
-  Area,
   ResponsiveContainer,
 } from "recharts";
+import Image from "next/image";
 
 export default class PufferChart extends PureComponent {
   state = {
@@ -57,7 +54,7 @@ export default class PufferChart extends PureComponent {
     }
   };
 
-  getDataRange = (key: any) => {
+  getDataRange = (key: string) => {
     const values = this.state.data.map((item) => item[key]);
     const min = Math.min(...values);
     const max = Math.max(...values);
@@ -161,7 +158,7 @@ export default class PufferChart extends PureComponent {
       <div style={{ width: "100%" }} className="bg-[#fefffe] p-6 rounded-xl">
         <div style={this.chartStyle}>
           <h3 style={this.chartTitleStyle}>PufETH:ETH Conversion Rate</h3>
-          <img
+          <Image
             src="/big-puffer.webp"
             alt=""
             className="absolute bottom-2 right-1 w-52 opacity-15 pointer-events-none"
@@ -197,7 +194,7 @@ export default class PufferChart extends PureComponent {
 
         <div style={this.chartStyle}>
           <h3 style={this.chartTitleStyle}>Total ETH in Puffer Vault</h3>
-          <img
+          <Image
             src="/big-puffer.webp"
             alt=""
             className="absolute bottom-2 right-1 w-52 opacity-15 pointer-events-none"
@@ -233,7 +230,7 @@ export default class PufferChart extends PureComponent {
 
         <div style={this.chartStyle}>
           <h3 style={this.chartTitleStyle}>Total PufETH nLRT Minted</h3>
-          <img
+          <Image
             src="/big-puffer.webp"
             alt=""
             className="absolute bottom-2 right-1 w-52 opacity-15 pointer-events-none"
