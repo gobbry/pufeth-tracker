@@ -1,11 +1,7 @@
 # PufETH Conversion Rate Tracker
 
 ![site](site.png)
-<video width="640" height="360" controls>
-
-  <source src="site.mov" type="video/quicktime">
-  Your browser does not support the video tag.
-</video>
+![vid](site.mov)
 
 # Tech Stack
 
