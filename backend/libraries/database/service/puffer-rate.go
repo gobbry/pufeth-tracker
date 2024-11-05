@@ -15,7 +15,7 @@ import (
 	"github.com/redis/go-redis/v9"
 )
 
-func UpdateConversionRate(c *ethclient.Client, database *sql.DB, rd *redis.Client, blockNumber int64, blockTimestampMs int64, ctx context.Context) error {
+func UpdateConversionRate(c *ethclient.Client, database *sql.DB, rd *redis.Client, blockNumber int64, blockTimestampMs int64, realtime bool, ctx context.Context) error {
 	querier := db.New(database)
 	rate, err := pufferclient.GetPufEthConversionRate(ctx, c, big.NewInt(blockNumber))
 	if err != nil {
@@ -45,7 +45,7 @@ func UpdateConversionRate(c *ethclient.Client, database *sql.DB, rd *redis.Clien
 		return fmt.Errorf("unable to marshal rate event: %w", err)
 	}
 
-	topic, err := comms.PufEthConversionRateTopic("ethereum")
+	topic, err := comms.PufEthConversionRateTopic("ethereum", realtime)
 	if err != nil {
 		return err
 	}

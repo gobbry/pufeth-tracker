@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 
 const Header = () => {
@@ -9,9 +8,9 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0 pl-0">
             {" "}
-            <Image
+            <img
               className="h-12 w-auto"
-              src="https://quest.puffer.fi/images/logos/puffer-logo-white.svg"
+              src="/puffer-logo-white.svg"
               alt="Logo"
             />
           </div>

@@ -96,7 +96,7 @@ func (rm *RateManager) loadHistorical(ctx context.Context) error {
 }
 
 func (rm *RateManager) subUpdates(ctx context.Context) error {
-	topic, err := comms.PufEthConversionRateTopic("")
+	topic, err := comms.PufEthConversionRateTopic("", true)
 	if err != nil {
 		return err
 	}

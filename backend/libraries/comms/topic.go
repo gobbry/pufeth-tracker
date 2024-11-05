@@ -13,11 +13,17 @@ func WithKey(topic string) (string, error) {
 	return keyTopic, nil
 }
 
-func PufEthConversionRateTopic(chain string, opts ...TopicOption) (string, error) {
+func PufEthConversionRateTopic(chain string, realtime bool, opts ...TopicOption) (string, error) {
 	var err error
 	var topic string
 
-	levels := []string{"puffer", "rate", chain}
+	var quality string
+	if realtime {
+		quality = "latest"
+	} else {
+		quality = "historical"
+	}
+	levels := []string{"puffer", "rate", chain, quality}
 	for i, part := range levels {
 		if part != "" {
 			continue

@@ -51,7 +51,7 @@ func main() {
 
 		case header := <-headers:
 			slog.Info("new block", "block", header.Number)
-			err := service.UpdateConversionRate(c, database, rd, header.Number.Int64(), int64(header.Time)*1_000, context.Background())
+			err := service.UpdateConversionRate(c, database, rd, header.Number.Int64(), int64(header.Time)*1_000, true, context.Background())
 			if err != nil {
 				slog.Error("unable to update conversion rate", "err", err)
 			}

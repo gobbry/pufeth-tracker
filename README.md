@@ -91,26 +91,23 @@ Do a migration to create the first table
 ```sql
 CREATE EXTENSION IF NOT EXISTS timescaledb;
 
-CREATE TABLE
-    IF NOT EXISTS puffer_conversion_rates (
-        chain VARCHAR(255) NOT NULL,
-        block_number BIGINT NOT NULL,
-        block_timestamp_ms BIGINT NOT NULL,
-        total_asset NUMERIC NOT NULL,
-        total_supply NUMERIC NOT NULL,
-        conversion_rate NUMERIC NOT NULL,
-        created_at TIMESTAMPTZ NOT NULL DEFAULT NOW (),
-        PRIMARY KEY (chain, block_number)
-    );
+CREATE TABLE IF NOT EXISTS puffer_conversion_rates (
+	chain TEXT NOT NULL,
+	block_number BIGINT NOT NULL,
+	block_timestamp_ms BIGINT NOT NULL,
+	total_asset NUMERIC NOT NULL,
+	total_supply NUMERIC NOT NULL,
+	conversion_rate NUMERIC NOT NULL,
+	created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+	PRIMARY KEY (chain, block_number, block_timestamp_ms)
+);
 
-SELECT
-    create_hypertable(
-        'puffer_conversion_rates',
-        'block_timestamp_ms',
-        chunk_time_interval => 86400000, -- 1 day in milliseconds
-        if_not_exists => TRUE,
-        migrate_data => TRUE
-    );
+SELECT create_hypertable(
+    'puffer_conversion_rates',
+    by_range('block_timestamp_ms',86400000), -- 1 day in milliseconds
+    if_not_exists => TRUE,
+    migrate_data => TRUE
+);
 ```
 
 ### Start Services

@@ -72,7 +72,7 @@ func main() {
 					slog.Error("unable to get block by number", "blockNumber", blockNumber, "err", err)
 					continue
 				}
-				err = service.UpdateConversionRate(c, database, rd, blockNumber, int64(b.Time())*1_000, context.Background())
+				err = service.UpdateConversionRate(c, database, rd, blockNumber, int64(b.Time())*1_000, false, context.Background())
 				if err != nil {
 					slog.Error("unable to update conversion rate", "blockNumber", blockNumber, "err", err)
 				}
